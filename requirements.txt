@@ -1,0 +1,6 @@
+distlib==0.3.8
+filelock==3.13.1
+gunicorn==21.2.0
+packaging==23.2
+platformdirs==4.1.0
+virtualenv==20.25.0

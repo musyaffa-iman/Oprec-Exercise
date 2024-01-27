@@ -1,0 +1,121 @@
+.navbar-brand {
+    font-family: "Russo One", sans-serif;
+    font-size: 30px;
+}
+
+.navbar {
+    height: 70px;
+    background-color: #224e8f;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nav-btn:hover {
+    color: #224e8f;
+}
+
+body {
+    font-family: "Exo", sans-serif;
+    color: white;
+    background: linear-gradient(90deg, black 0%, #224e8f 35%, lightblue 100%);
+}
+
+#hello {
+    font-family: "Russo One", sans-serif;
+    font-size: 100px;
+}
+
+#home {
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.card {
+    background-color: lightgray;
+    padding: 20px;
+}
+
+footer {
+    color: white;
+    background-color: #293445;
+    padding: 20px 0;
+}
+
+.box div{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: transparent;
+    border: 6px solid white;
+}
+
+.box div:nth-child(1) {
+    top: 12%;
+    left: 42%;
+    animation: animate 10s linear infinite;
+}
+
+.box div:nth-child(2) {
+    top: 70%;
+    left: 50%;
+    animation: animate 7s linear infinite;
+}
+
+.box div:nth-child(3) {
+    top: 17%;
+    left: 6%;
+    animation: animate 9s linear infinite;
+}
+
+.box div:nth-child(4) {
+    top: 20%;
+    left: 60%;
+    animation: animate 10s linear infinite;
+}
+
+.box div:nth-child(5) {
+    top: 67%;
+    left: 10%;
+    animation: animate 6s linear infinite;
+}
+
+.box div:nth-child(6) {
+    top: 80%;
+    left: 70%;
+    animation: animate 12s linear infinite;
+}
+
+.box div:nth-child(7) {
+    top: 60%;
+    left: 80%;
+    animation: animate 15s linear infinite;
+}
+
+.box div:nth-child(8) {
+    top: 32%;
+    left: 25%;
+    animation: animate 16s linear infinite;
+}
+
+.box div:nth-child(9) {
+    top: 20%;
+    left: 80%;
+    animation: animate 5s linear infinite;
+}
+
+.box div:nth-child(10) {
+    top: 90%;
+    left: 25%;
+    animation: animate 9s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        transform: scale(0) translateY(0) rotate(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.3) translateY(-90px) rotate(360deg);
+        opacity: 0;
+    }
+}

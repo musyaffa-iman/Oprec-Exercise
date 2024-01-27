@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Convert-4-U | Temp Converter
+{% endblock %}
+
+{% block main %}
+    <div class="container my-5">
+        <h1 class="text-center"><b>Temperature Converter</b></h1>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form action="/temp_convert" method="post">
+                    <div class="card my-3">
+                        <div class="row g-3">
+                            <div class="col-md-7">
+                                <div class="card-body">
+                                    <!-- Input derajat -->
+                                    <label for="temperature" class="form-label">Temperature:</label>
+                                    <input name="degrees" type="text" step="0.01" class="form-control" id="temperature" placeholder="Enter degrees" value="{{ degrees }}">
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="card-body">
+                                    <!-- Pemilihan satuan awal -->
+                                    <label for="from" class="form-label">From:</label>
+                                    <select id="from" class="form-select" name="fromUnit">
+                                        <option>--</option>
+                                        <!-- satuan akan tetap terpilih setelah render_template -->
+                                        <option value="celsius" {% if fromUnit == 'celsius' %}selected{% endif %}>Celsius (°C)</option>
+                                        <option value="fahrenheit" {% if fromUnit == 'fahrenheit' %}selected{% endif %}>Fahrenheit (°F)</option>
+                                        <option value="kelvin" {% if fromUnit == 'kelvin' %}selected{% endif %}>Kelvin (K)</option>
+                                        <option value="rankine" {% if fromUnit == 'rankine' %}selected{% endif %}>Rankine (R)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-md">
+                                <div class="card-body">
+                                    <!-- Pemilihan satuan akhir -->
+                                    <label for="to" class="form-label">To:</label>
+                                    <div class="mb-3">
+                                        <select id="to" class="form-select" name="toUnit">
+                                            <option>--</option>
+                                            <!-- satuan akan tetap terpilih setelah render_template-->
+                                            <option value="celsius" {% if toUnit == 'celsius' %}selected{% endif %}>Celsius (°C)</option>
+                                            <option value="fahrenheit" {% if toUnit == 'fahrenheit' %}selected{% endif %}>Fahrenheit (°F)</option>
+                                            <option value="kelvin" {% if toUnit == 'kelvin' %}selected{% endif %}>Kelvin (K)</option>
+                                            <option value="rankine" {% if toUnit == 'rankine' %}selected{% endif %}>Rankine (R)</option>
+                                        </select>
+                                    </div>
+
+                                    <button class="btn btn-primary" type="submit">Convert</button>
+                                    <!-- Error handling -->
+                                    {% if value_error %}
+                                        <div class="card-body" style="color: red">
+                                            {{ value_error }}
+                                        </div>
+                                    {% endif %}
+                                    <!-- Error handling -->
+                                    {% if error %}
+                                        <div class="card-body" style="color: red">
+                                            {{ error }}
+                                        </div>
+                                    {% endif %}
+                                    <div class="my-3">
+                                        <!-- Tampilan hasil dan perhitungan. Perhitungan akan kosong jika satuan awal dan akhir sama -->
+                                        {% if result|default(None) is not none %}
+                                            <label for="result" class="form-label">Result:</label>
+                                            <input id="result" type="text" class="form-control mb-2" value="{{ result|round(4) }} {{ units[toUnit] }}" readonly>
+                                            {% if calculations %}
+                                                <label for="calculations" class="form-label">Calculations:</label>
+                                                <input id="calculations" type="text" class="form-control" value="{{ calculations }} = {{ result|round(4) }} {{ units[toUnit] }}" readonly>
+                                            {% endif %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

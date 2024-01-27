@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Convert-4-U | Home
+{% endblock %}
+
+<!-- Tampilan home page -->
+{% block main %}
+    <div class="container-fluid" id="home">
+        <div class="row">
+            <h1 id="hello">Hello There!</h1>
+        </div>
+        <div class="row mb-3">
+            <p style="font-size: 30px">Welcome to Convert-4-U!</p>
+            <p>Click the button below to start converting!</p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6 my-1"><a type="button" class="btn btn-outline-light btn-lg w-100" style="--bs-btn-padding-y: 3rem" href="/temp_convert">Temperature Converter</a></div>
+        </div>
+    </div>
+{% endblock %}
